@@ -1,0 +1,2 @@
+/Users/giladf	40
+/Users/giladf/dev/bigpanda/outbound-api	40
