@@ -1,21 +1,18 @@
-" vim-sublime - A minimal Sublime Text -like vim experience bundle
-"               http://github.com/grigio/vim-sublime
-" Best view with a 256 color terminal and Powerline fonts
-
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-surround'
 Bundle 'gcmt/breeze.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'SirVer/ultisnips'
+"Bundle 'SirVer/ultisnips'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'ryanoasis/vim-devicons'
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'jelera/vim-javascript-syntax'
@@ -23,12 +20,16 @@ Bundle 'ternjs/tern_for_vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'moll/vim-node'
 Bundle 'Yggdroot/indentLine'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
+Bundle 'diepm/vim-rest-console'
+Bundle 'HerringtonDarkholme/yats.vim'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'peitalin/vim-jsx-typescript'
+Bundle 'jparise/vim-graphql'
 
 
-""""""""
 if has('autocmd')
   filetype plugin indent on
 endif
@@ -37,7 +38,6 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 "set background=dark
 colorscheme onedark
-
 " Use :help 'option' to see the documentation for the given option.
 set autoindent
 set backspace=indent,eol,start
@@ -108,8 +108,7 @@ set completeopt=menuone,longest,preview
 "
 
 " CtrlP
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
-
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/dist/*
 " Ultisnip
 " NOTE: <f1> otherwise it overrides <tab> forever
 let g:UltiSnipsExpandTrigger="<f1>"
@@ -185,7 +184,10 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 call vundle#end()            " required
+
 filetype plugin indent on   
+
+au BufNewFile,BufRead,BufReadPost *.bp set syntax=tf
 
 execute pathogen#infect()
 call pathogen#helptags()
