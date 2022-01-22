@@ -20,7 +20,6 @@ Bundle 'ternjs/tern_for_vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'moll/vim-node'
 Bundle 'Yggdroot/indentLine'
-Bundle 'Valloric/YouCompleteMe'
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
 Bundle 'diepm/vim-rest-console'
@@ -36,7 +35,7 @@ endif
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
-"set background=dark
+"set background=dark 
 colorscheme onedark
 " Use :help 'option' to see the documentation for the given option.
 set autoindent
@@ -119,7 +118,7 @@ let g:did_UltiSnips_vim_after = 1
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
+let g:airline_theme = 'onedark'
 "
 " Basic shortcuts definitions
 "  most in visual mode / selection (v or ⇧ v)
@@ -189,5 +188,3 @@ filetype plugin indent on
 
 au BufNewFile,BufRead,BufReadPost *.bp set syntax=tf
 
-execute pathogen#infect()
-call pathogen#helptags()
